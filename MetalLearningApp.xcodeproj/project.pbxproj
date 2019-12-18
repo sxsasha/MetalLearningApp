@@ -13,6 +13,14 @@
 		97C737A323981D090085891F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C737A123981D090085891F /* Main.storyboard */; };
 		97C737A523981D0A0085891F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C737A423981D0A0085891F /* Assets.xcassets */; };
 		97C737A823981D0A0085891F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C737A623981D0A0085891F /* LaunchScreen.storyboard */; };
+		97C737B123981D870085891F /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C737B023981D870085891F /* MetalKit.framework */; };
+		97C737B423981DEC0085891F /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C737B323981DEC0085891F /* Renderer.swift */; };
+		97C737BA23981EDB0085891F /* train.obj in Resources */ = {isa = PBXBuildFile; fileRef = 97C737B623981EDB0085891F /* train.obj */; };
+		97C737BB23981EDB0085891F /* train.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 97C737B723981EDB0085891F /* train.mtl */; };
+		97C737BC23981EDB0085891F /* mushroom.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 97C737B823981EDB0085891F /* mushroom.mtl */; };
+		97C737BD23981EDB0085891F /* mushroom.obj in Resources */ = {isa = PBXBuildFile; fileRef = 97C737B923981EDB0085891F /* mushroom.obj */; };
+		97C737C023981F150085891F /* StandartShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 97C737BF23981F150085891F /* StandartShader.metal */; };
+		97D252DD23AA9B4700310104 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D252DC23AA9B4700310104 /* MathLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,16 @@
 		97C737A423981D0A0085891F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C737A723981D0A0085891F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C737A923981D0A0085891F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97C737B023981D870085891F /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		97C737B323981DEC0085891F /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		97C737B623981EDB0085891F /* train.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.obj; sourceTree = "<group>"; };
+		97C737B723981EDB0085891F /* train.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.mtl; sourceTree = "<group>"; };
+		97C737B823981EDB0085891F /* mushroom.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mushroom.mtl; sourceTree = "<group>"; };
+		97C737B923981EDB0085891F /* mushroom.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mushroom.obj; sourceTree = "<group>"; };
+		97C737BF23981F150085891F /* StandartShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = StandartShader.metal; sourceTree = "<group>"; };
+		97D252DC23AA9B4700310104 /* MathLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
+		97D252DF23AACD3E00310104 /* ShaderDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderDefinitions.h; sourceTree = "<group>"; };
+		97D252E023AACE1500310104 /* MetalLearningApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MetalLearningApp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C737B123981D870085891F /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,7 @@
 			children = (
 				97C7379A23981D090085891F /* MetalLearningApp */,
 				97C7379923981D090085891F /* Products */,
+				97C737AF23981D870085891F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +76,10 @@
 		97C7379A23981D090085891F /* MetalLearningApp */ = {
 			isa = PBXGroup;
 			children = (
+				97D252DB23AA9B3400310104 /* Utility */,
+				97C737BE23981F010085891F /* Shaders */,
+				97C737B523981E0E0085891F /* Resources */,
+				97C737B223981DD90085891F /* Render */,
 				97C7379B23981D090085891F /* AppDelegate.swift */,
 				97C7379D23981D090085891F /* SceneDelegate.swift */,
 				97C7379F23981D090085891F /* ViewController.swift */,
@@ -63,8 +87,53 @@
 				97C737A423981D0A0085891F /* Assets.xcassets */,
 				97C737A623981D0A0085891F /* LaunchScreen.storyboard */,
 				97C737A923981D0A0085891F /* Info.plist */,
+				97D252E023AACE1500310104 /* MetalLearningApp-Bridging-Header.h */,
 			);
 			path = MetalLearningApp;
+			sourceTree = "<group>";
+		};
+		97C737AF23981D870085891F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97C737B023981D870085891F /* MetalKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97C737B223981DD90085891F /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				97C737B323981DEC0085891F /* Renderer.swift */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
+		97C737B523981E0E0085891F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				97C737B823981EDB0085891F /* mushroom.mtl */,
+				97C737B923981EDB0085891F /* mushroom.obj */,
+				97C737B723981EDB0085891F /* train.mtl */,
+				97C737B623981EDB0085891F /* train.obj */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		97C737BE23981F010085891F /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				97C737BF23981F150085891F /* StandartShader.metal */,
+				97D252DF23AACD3E00310104 /* ShaderDefinitions.h */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		97D252DB23AA9B3400310104 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				97D252DC23AA9B4700310104 /* MathLibrary.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +194,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C737BA23981EDB0085891F /* train.obj in Resources */,
+				97C737BB23981EDB0085891F /* train.mtl in Resources */,
 				97C737A823981D0A0085891F /* LaunchScreen.storyboard in Resources */,
 				97C737A523981D0A0085891F /* Assets.xcassets in Resources */,
 				97C737A323981D090085891F /* Main.storyboard in Resources */,
+				97C737BC23981EDB0085891F /* mushroom.mtl in Resources */,
+				97C737BD23981EDB0085891F /* mushroom.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C737B423981DEC0085891F /* Renderer.swift in Sources */,
 				97C737A023981D090085891F /* ViewController.swift in Sources */,
 				97C7379C23981D090085891F /* AppDelegate.swift in Sources */,
 				97C7379E23981D090085891F /* SceneDelegate.swift in Sources */,
+				97C737C023981F150085891F /* StandartShader.metal in Sources */,
+				97D252DD23AA9B4700310104 /* MathLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +298,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -275,6 +352,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -293,6 +371,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.devlight.MetalLearningApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalLearningApp/MetalLearningApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -311,6 +390,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.devlight.MetalLearningApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalLearningApp/MetalLearningApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
