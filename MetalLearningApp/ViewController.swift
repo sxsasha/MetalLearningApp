@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             fatalError("GPU is not supported")
         }
 
-        renderer = Renderer(device: device)
+        renderer = Renderer(device: device, viewSize: mtkView.bounds.size)
 
         mtkView.device = device
         mtkView.delegate = renderer

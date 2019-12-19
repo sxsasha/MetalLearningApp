@@ -17,8 +17,9 @@ class Renderer: NSObject {
     var mesh: MTKMesh!
     
     var timer: Float = 0
+    var projectionMatrix: float4x4 = .identity
     
-    init(device: MTLDevice) {
+    init(device: MTLDevice, viewSize: CGSize) {
         self.device = device
         super.init()
         
@@ -30,6 +31,7 @@ class Renderer: NSObject {
         
         createMesh()
         makePipeline()
+        computeProjection(size: viewSize)
     }
     
     private func createMesh() {
@@ -74,11 +76,19 @@ class Renderer: NSObject {
             fatalError(error.localizedDescription)
         }
     }
+    
+    private func computeProjection(size: CGSize) {
+        let aspect = Float(size.width / size.height)
+        projectionMatrix = float4x4(projectionFov: radians(fromDegrees: 45),
+                                    near: 0.1,
+                                    far: 100,
+                                    aspect: aspect)
+    }
 }
 
 extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        
+        computeProjection(size: size)
     }
     
     func draw(in view: MTKView) {
@@ -90,10 +100,11 @@ extension Renderer: MTKViewDelegate {
         
         var uniforms = Uniforms()
         let translation = float4x4(translation: [0, 0.3, 0])
-        let rotations = float4x4(rotation: [0, 0, radians(fromDegrees: 45)])
-        uniforms.modelMatrix = translation * rotations
-        uniforms.viewMatrix = float4x4(translation: [0.8, 0, 0]).inverse
-
+        let rotations = float4x4(rotation: [0, radians(fromDegrees: 70), 0])
+        uniforms.modelMatrix = translation * float4x4(rotationY: sin(timer)) //rotations
+        uniforms.viewMatrix = float4x4(translation: [0, 0, -5]).inverse
+        uniforms.projectionMatrix = projectionMatrix
+        
         renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 2)
         
         timer += 0.05

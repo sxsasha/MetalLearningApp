@@ -78,9 +78,8 @@ extension float4x4 {
     self = rotationX * rotationY * rotationZ
   }
   
-  static func identity() -> float4x4 {
-    let matrix:float4x4 = matrix_identity_float4x4
-    return matrix
+  static var identity: float4x4 {
+    return matrix_identity_float4x4
   }
   
   func upperLeft() -> float3x3 {
