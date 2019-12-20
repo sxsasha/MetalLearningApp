@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97C5CE8A23AD045C001576A8 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE8923AD045C001576A8 /* Node.swift */; };
+		97C5CE8C23AD0908001576A8 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE8B23AD0908001576A8 /* Camera.swift */; };
+		97C5CE8E23AD0E36001576A8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE8D23AD0E36001576A8 /* Model.swift */; };
+		97C5CE9023AD1623001576A8 /* VertexDescriptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE8F23AD1623001576A8 /* VertexDescriptorManager.swift */; };
+		97C5CE9223AD18A5001576A8 /* PipelineStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE9123AD18A5001576A8 /* PipelineStateManager.swift */; };
 		97C7379C23981D090085891F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C7379B23981D090085891F /* AppDelegate.swift */; };
 		97C7379E23981D090085891F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C7379D23981D090085891F /* SceneDelegate.swift */; };
 		97C737A023981D090085891F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C7379F23981D090085891F /* ViewController.swift */; };
@@ -24,6 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97C5CE8923AD045C001576A8 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		97C5CE8B23AD0908001576A8 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		97C5CE8D23AD0E36001576A8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		97C5CE8F23AD1623001576A8 /* VertexDescriptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDescriptorManager.swift; sourceTree = "<group>"; };
+		97C5CE9123AD18A5001576A8 /* PipelineStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineStateManager.swift; sourceTree = "<group>"; };
 		97C7379823981D090085891F /* MetalLearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C7379B23981D090085891F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C7379D23981D090085891F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +114,11 @@
 			isa = PBXGroup;
 			children = (
 				97C737B323981DEC0085891F /* Renderer.swift */,
+				97C5CE8923AD045C001576A8 /* Node.swift */,
+				97C5CE8B23AD0908001576A8 /* Camera.swift */,
+				97C5CE8D23AD0E36001576A8 /* Model.swift */,
+				97C5CE8F23AD1623001576A8 /* VertexDescriptorManager.swift */,
+				97C5CE9123AD18A5001576A8 /* PipelineStateManager.swift */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -211,12 +226,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C5CE8E23AD0E36001576A8 /* Model.swift in Sources */,
+				97C5CE8C23AD0908001576A8 /* Camera.swift in Sources */,
+				97C5CE9023AD1623001576A8 /* VertexDescriptorManager.swift in Sources */,
 				97C737B423981DEC0085891F /* Renderer.swift in Sources */,
 				97C737A023981D090085891F /* ViewController.swift in Sources */,
 				97C7379C23981D090085891F /* AppDelegate.swift in Sources */,
 				97C7379E23981D090085891F /* SceneDelegate.swift in Sources */,
 				97C737C023981F150085891F /* StandartShader.metal in Sources */,
 				97D252DD23AA9B4700310104 /* MathLibrary.swift in Sources */,
+				97C5CE9223AD18A5001576A8 /* PipelineStateManager.swift in Sources */,
+				97C5CE8A23AD045C001576A8 /* Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

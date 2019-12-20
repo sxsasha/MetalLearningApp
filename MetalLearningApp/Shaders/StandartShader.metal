@@ -18,10 +18,8 @@ struct VertexIn {
 };
 
 vertex float4 vertex_main(const VertexIn vertex_in [[ stage_in ]],
-                          constant float &timer [[ buffer(1) ]],
-                          constant Uniforms &uniforms [[ buffer(2) ]]) {
+                          constant Uniforms &uniforms [[ buffer(1) ]]) {
     float4 position = uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix * vertex_in.position;
-    //position.x += timer;
     
     return position;
 }

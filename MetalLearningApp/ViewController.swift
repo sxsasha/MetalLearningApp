@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet private var mtkView: MTKView!
     
     // Properties
-    var renderer: Renderer?
+    private var renderer: Renderer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,14 @@ class ViewController: UIViewController {
     }
 
     private func configRender() {
-        guard let device = MTLCreateSystemDefaultDevice() else {
-            fatalError("GPU is not supported")
-        }
-
-        renderer = Renderer(device: device, viewSize: mtkView.bounds.size)
-
-        mtkView.device = device
-        mtkView.delegate = renderer
-        mtkView.clearColor = MTLClearColor(red: 1, green: 1, blue: 0.8, alpha: 1)
+        renderer = Renderer(metalView: mtkView)
+        
+        let model = Model(name: "train")
+        model.position = [0, 0.3, 0]
+        model.rotation = [0, radians(fromDegrees: 45), 0]
+        renderer?.models = [model]
+        
+        renderer?.camera.position = [0, 0, -5]
     }
 
 }
