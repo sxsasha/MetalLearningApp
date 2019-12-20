@@ -6,7 +6,7 @@
 //  Copyright © 2019 sxsasha. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Camera: Node {
     var fovDegree: Float = 70 {
@@ -48,5 +48,20 @@ class Camera: Node {
         let scaleMatrix = float4x4(scaling: scale)
         
         return (translateMatrix * scaleMatrix * rotateMatrix).inverse
+    }
+}
+
+extension Camera {
+    func zoomUsing(delta: CGFloat, sensitivity: Float) {
+        let cameraVector = modelMatrix.upperLeft().columns.2
+        
+        position += Float(delta) * sensitivity * cameraVector
+    }
+    
+    func rotateUsing(translation: SIMD2<Float>) {
+        let sensitivity: Float = 0.01
+        
+        position = float4x4(rotationY: translation.x * sensitivity).upperLeft() * position
+        rotation.y = atan2f(-position.x, -position.z)
     }
 }
