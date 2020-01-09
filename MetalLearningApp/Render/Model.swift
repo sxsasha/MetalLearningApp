@@ -15,7 +15,7 @@ class Model: Node {
     let pipelineState: MTLRenderPipelineState
     
     init(name: String,
-         vertexDescriptor: MDLVertexDescriptor = VertexDescriptorManager.defaultVertexDescriptor,
+         vertexDescriptor: MDLVertexDescriptor = VertexDescriptorManager.normalVertexDescriptor,
          pipelineState: MTLRenderPipelineState = PipelineStateManager.defaultPipelineState) {
         
         guard let assetURL = Bundle.main.url(forResource: name, withExtension: "obj") else {
@@ -36,5 +36,6 @@ class Model: Node {
         self.pipelineState = pipelineState
         
         super.init()
+        self.name = name
     }
 }

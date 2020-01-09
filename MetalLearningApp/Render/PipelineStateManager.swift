@@ -17,7 +17,8 @@ class PipelineStateManager {
         pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
         pipelineDescriptor.vertexFunction = vertexFunction
         pipelineDescriptor.fragmentFunction = fragmentFunction
-        pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(VertexDescriptorManager.defaultVertexDescriptor)
+        pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(VertexDescriptorManager.normalVertexDescriptor)
+        pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
         
         do {
             return try Renderer.device.makeRenderPipelineState(descriptor: pipelineDescriptor)

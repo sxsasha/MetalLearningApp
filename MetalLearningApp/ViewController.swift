@@ -28,10 +28,16 @@ class ViewController: UIViewController {
     private func configRender() {
         renderer = Renderer(metalView: mtkView)
         
-        let model = Model(name: "train")
-        model.position = [0, 0.3, 0]
-        model.rotation = [0, radians(fromDegrees: 45), 0]
-        renderer?.models = [model]
+        let train = Model(name: "train")
+        train.position = [0, 0.3, 0]
+        train.rotation = [0, radians(fromDegrees: 45), 0]
+        
+        let treefir = Model(name: "treefir")
+        treefir.position = [1.4, 0, 0]
+        
+        renderer?.models = [train, treefir]
+        renderer?.lights = [Light(type: Sunlight, position: [1, 2, -2]),
+                            Light(type: Ambientlight, color: [0.5, 1, 0], intensity: 0.15)]
         
         renderer?.camera.position = [0, 0, -5]
         //renderer?.camera.fovDegree = 40
