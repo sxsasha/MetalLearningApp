@@ -15,23 +15,26 @@ typedef struct {
 } Uniforms;
 
 typedef enum {
-  unused = 0,
-  Sunlight = 1,
-  Spotlight = 2,
-  Pointlight = 3,
-  Ambientlight = 4
+    unused = 0,
+    Sunlight = 1,
+    Spotlight = 2,
+    Pointlight = 3,
+    Ambientlight = 4
 } LightType;
 
 typedef struct {
-  vector_float3 position;
-  vector_float3 color;
-  vector_float3 specularColor;
-  float intensity;
-  vector_float3 attenuation;
-  LightType type;
+    vector_float3 position;
+    vector_float3 color;
+    vector_float3 specularColor;
+    float intensity;
+    vector_float3 attenuation;
+    float coneAngle;
+    vector_float3 coneDirection;
+    float coneAttenuation;
+    LightType type;
 } Light;
 
 typedef struct {
-  uint lightCount;
-  vector_float3 cameraPosition;
+    uint lightCount;
+    vector_float3 cameraPosition;
 } FragmentUniforms;

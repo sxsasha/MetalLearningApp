@@ -72,10 +72,6 @@ extension Renderer: MTKViewDelegate {
                 return
         }
         
-        /// for rotation
-        models[0].rotation.y += 0.01
-        models[1].rotation.y += 0.01
-        
         uniforms.viewMatrix = camera.viewMatrix
         uniforms.projectionMatrix = camera.projectionMatrix
         fragmentUniforms.cameraPosition = camera.position
@@ -105,7 +101,7 @@ extension Renderer: MTKViewDelegate {
             }
         }
 
-        debugLights(renderEncoder: renderEncoder, lightType: Sunlight)
+        debugLights(renderEncoder: renderEncoder, lightType: Pointlight)
         renderEncoder.endEncoding()
         guard let drawable = view.currentDrawable else {
             return

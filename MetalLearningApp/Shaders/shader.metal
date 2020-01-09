@@ -38,7 +38,7 @@ fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
                               constant Light *lights [[ buffer(2) ]],
                               constant FragmentUniforms &fragmentUniforms [[ buffer(3) ]]) {
     // sunlight
-    float3 baseColor = float3(0, 1, 0);
+    float3 baseColor = float3(1, 1, 1);
     float3 diffuseColor = float3(0);
     float3 normalDirection = normalize(fromVertex.worldNormal);
     
@@ -74,6 +74,39 @@ fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
             }
         } else if (light.type == Ambientlight) {
             ambientColor += light.color * light.intensity;
+        } else if (light.type == Pointlight) {
+              // 1
+              float d = distance(light.position, fromVertex.worldPosition);
+              // 2
+              float3 lightDirection = normalize(light.position - fromVertex.worldPosition);
+              // 3
+              float attenuation = 1.0 / (light.attenuation.x +
+                  light.attenuation.y * d + light.attenuation.z * d * d);
+              float diffuseIntensity =
+                  saturate(dot(lightDirection, normalDirection));
+              float3 color = light.color * baseColor * diffuseIntensity;
+              // 4
+              color *= attenuation;
+              diffuseColor += color;
+        } else if (light.type == Spotlight) {
+            // 1
+            float d = distance(light.position, fromVertex.worldPosition);
+            float3 lightDirection = normalize(light.position - fromVertex.worldPosition);
+            // 2
+            float3 coneDirection = normalize(-light.coneDirection);
+            float spotResult = (dot(lightDirection, coneDirection));
+            // 3
+            if (spotResult > cos(light.coneAngle)) {
+                float attenuation = 1.0 / (light.attenuation.x +
+                                           // 4
+                                           light.attenuation.y * d + light.attenuation.z * d * d);
+              
+                attenuation *= pow(spotResult, light.coneAttenuation);
+                float diffuseIntensity = saturate(dot(lightDirection, normalDirection));
+                float3 color = light.color * baseColor * diffuseIntensity;
+                color *= attenuation;
+                diffuseColor += color;
+            }
         }
     }
     
