@@ -14,31 +14,38 @@ using namespace metal;
 //#import "MetalLearningApp-Bridging-Header.h"
 
 struct VertexIn {
-    float4 position [[ attribute(0) ]];
-    float3 normal [[ attribute(1) ]];
+    float4 position [[ attribute(Position) ]];
+    float3 normal [[ attribute(Normal) ]];
+    float2 uv [[ attribute(UV) ]];
 };
 
 struct VertexOut {
     float4 position [[ position ]];
     float3 worldPosition;
     float3 worldNormal;
+    float2 uv;
 };
 
 vertex VertexOut vertex_main(const VertexIn vertex_in [[ stage_in ]],
-                             constant Uniforms &uniforms [[ buffer(1) ]]) {
+                             constant Uniforms &uniforms [[ buffer(UniformsIndex) ]]) {
     VertexOut out;
     out.position = uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix * vertex_in.position;
     out.worldPosition = (uniforms.modelMatrix * vertex_in.position).xyz;
     out.worldNormal = uniforms.normalMatrix * vertex_in.normal;
+    out.uv = vertex_in.uv;
     
     return out;
 }
 
 fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
-                              constant Light *lights [[ buffer(2) ]],
-                              constant FragmentUniforms &fragmentUniforms [[ buffer(3) ]]) {
+                              constant Light *lights [[ buffer(LightsIndex) ]],
+                              constant FragmentUniforms &fragmentUniforms [[ buffer(FragmentUniformsIndex) ]],
+                              texture2d<float> baseColorTexture [[ texture(BaseColorTexture)]],
+                              sampler textureSampler [[sampler(0)]]) {
     // sunlight
-    float3 baseColor = float3(1, 1, 1);
+    float3 baseColor = baseColorTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).rgb;
+    return float4(baseColor, 1);
+    
     float3 diffuseColor = float3(0);
     float3 normalDirection = normalize(fromVertex.worldNormal);
     

@@ -79,29 +79,39 @@ extension Renderer: MTKViewDelegate {
         renderEncoder.setDepthStencilState(depthStencilState)
         renderEncoder.setFragmentBytes(&lights,
                                        length: MemoryLayout<Light>.stride * lights.count,
-                                       index: 2)
-        renderEncoder.setFragmentBytes(&fragmentUniforms,
-                                       length: MemoryLayout<FragmentUniforms>.stride,
-                                       index: 3)
+                                       index: Int(LightsIndex.rawValue))
         
         for model in models {
             uniforms.modelMatrix = model.modelMatrix
             uniforms.normalMatrix = float3x3(normalFrom4x4: model.modelMatrix)
+            fragmentUniforms.tiling = model.tiling
             
-            renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 1)
             renderEncoder.setRenderPipelineState(model.pipelineState)
-            renderEncoder.setVertexBuffer(model.vertexBuffer, offset: 0, index: 0)
+            renderEncoder.setVertexBytes(&uniforms,
+                                         length: MemoryLayout<Uniforms>.stride,
+                                         index: Int(UniformsIndex.rawValue))
             
-            for submesh in model.mesh.submeshes {
+            renderEncoder.setVertexBuffer(model.vertexBuffer,
+                                          offset: 0,
+                                          index: Int(VerticesIndex.rawValue))
+            renderEncoder.setFragmentBytes(&fragmentUniforms,
+                                           length: MemoryLayout<FragmentUniforms>.stride,
+                                           index: Int(FragmentUniformsIndex.rawValue))
+            renderEncoder.setFragmentSamplerState(model.samplerState, index: 0)
+            
+            for modelSubmesh in model.submeshes {
+                renderEncoder.setFragmentTexture(modelSubmesh.textures.baseColor,
+                                                 index: Int(BaseColorTexture.rawValue))
+                
                 renderEncoder.drawIndexedPrimitives(type: .triangle,
-                                                    indexCount: submesh.indexCount,
-                                                    indexType: submesh.indexType,
-                                                    indexBuffer: submesh.indexBuffer.buffer,
-                                                    indexBufferOffset: submesh.indexBuffer.offset)
+                                                    indexCount: modelSubmesh.submesh.indexCount,
+                                                    indexType: modelSubmesh.submesh.indexType,
+                                                    indexBuffer: modelSubmesh.submesh.indexBuffer.buffer,
+                                                    indexBufferOffset: modelSubmesh.submesh.indexBuffer.offset)
             }
         }
 
-        debugLights(renderEncoder: renderEncoder, lightType: Pointlight)
+//        debugLights(renderEncoder: renderEncoder, lightType: Pointlight)
         renderEncoder.endEncoding()
         guard let drawable = view.currentDrawable else {
             return

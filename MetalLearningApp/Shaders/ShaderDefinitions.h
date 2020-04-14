@@ -26,15 +26,33 @@ typedef struct {
     vector_float3 position;
     vector_float3 color;
     vector_float3 specularColor;
-    float intensity;
     vector_float3 attenuation;
-    float coneAngle;
     vector_float3 coneDirection;
+    float coneAngle;
+    float intensity;
     float coneAttenuation;
     LightType type;
 } Light;
 
 typedef struct {
-    uint lightCount;
     vector_float3 cameraPosition;
+    uint lightCount;
+    uint tiling;
 } FragmentUniforms;
+
+typedef enum {
+    Position = 0,
+    Normal = 1,
+    UV = 2
+} Attributes;
+
+typedef enum {
+    VerticesIndex = 0,
+    UniformsIndex = 1,
+    LightsIndex = 2,
+    FragmentUniformsIndex = 3
+}  BufferIndices;
+
+typedef enum {
+  BaseColorTexture = 0
+} Textures;

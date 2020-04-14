@@ -28,14 +28,23 @@ class ViewController: UIViewController {
     private func configRender() {
         renderer = Renderer(metalView: mtkView)
         
-        let train = Model(name: "train")
-        train.position = [0, 0.9, 0]
-        train.rotation = [0, radians(fromDegrees: 45), 0]
+//        let train = Model(name: "train")
+//        train.position = [0, 0.9, 0]
+//        train.rotation = [0, radians(fromDegrees: 45), 0]
+//
+//        let treefir = Model(name: "treefir")
+//        treefir.position = [1.4, 0, 0]
         
-        let treefir = Model(name: "treefir")
-        treefir.position = [1.4, 0, 0]
+        let lowPolyHouse = Model(name: "lowpoly-house")
+        lowPolyHouse.position = [0, -1, 0]
+        lowPolyHouse.rotation = [0, radians(fromDegrees: 45), 0]
         
-        renderer?.models = [train, treefir]
+        let plane = Model(name: "plane")
+        plane.tiling = 40
+        plane.position = [0, -1, 0]
+        plane.scale = [40, 40, 40]
+        
+        renderer?.models = [lowPolyHouse, plane]
         renderer?.lights = [Light(type: Sunlight, position: [1, 2, -2]),
                             Light(type: Ambientlight, color: [0.5, 1, 0], intensity: 0.1),
                             Light(type: Pointlight,

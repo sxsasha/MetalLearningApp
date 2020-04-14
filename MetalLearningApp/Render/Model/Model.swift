@@ -10,9 +10,11 @@ import MetalKit
 
 class Model: Node {
     let mesh: MTKMesh
-    let submeshes: [MTKSubmesh]
+    let submeshes: [Submesh]
     let vertexBuffer: MTLBuffer
     let pipelineState: MTLRenderPipelineState
+    let samplerState: MTLSamplerState?
+    var tiling: UInt32 = 1
     
     init(name: String,
          vertexDescriptor: MDLVertexDescriptor = VertexDescriptorManager.normalVertexDescriptor,
@@ -30,11 +32,21 @@ class Model: Node {
         let mdlMesh = asset.object(at: 0) as! MDLMesh
         
         // get mtkMesh from MDLMesh
-        self.mesh = try! MTKMesh(mesh: mdlMesh, device: Renderer.device)
-        self.submeshes = mesh.submeshes
+        let mesh = try! MTKMesh(mesh: mdlMesh, device: Renderer.device)
+        self.mesh = mesh
+        
+        self.submeshes = mdlMesh.submeshes?.enumerated().compactMap({
+            if let submesh = $0.element as? MDLSubmesh {
+                return Submesh(submesh: mesh.submeshes[$0.offset],
+                        mdlSubmesh: submesh)} else {
+                return nil
+            }
+        }) ?? []
+        
         self.vertexBuffer = mesh.vertexBuffers[0].buffer
         self.pipelineState = pipelineState
-        
+        self.samplerState = SamplerStateManager.buildRepeatSamplerState
+            
         super.init()
         self.name = name
     }

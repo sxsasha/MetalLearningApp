@@ -11,7 +11,7 @@ import MetalKit
 class VertexDescriptorManager {
     static var defaultVertexDescriptor: MDLVertexDescriptor = {
         let vertexDescriptor = MDLVertexDescriptor()
-        vertexDescriptor.attributes[0] = MDLVertexAttribute(name: MDLVertexAttributePosition,
+        vertexDescriptor.attributes[Int(Position.rawValue)] = MDLVertexAttribute(name: MDLVertexAttributePosition,
                                                             format: .float3,
                                                             offset: 0,
                                                             bufferIndex: 0)
@@ -23,17 +23,22 @@ class VertexDescriptorManager {
     
     static var normalVertexDescriptor: MDLVertexDescriptor = {
         let vertexDescriptor = MDLVertexDescriptor()
-        vertexDescriptor.attributes[0] = MDLVertexAttribute(name: MDLVertexAttributePosition,
+        vertexDescriptor.attributes[Int(Position.rawValue)] = MDLVertexAttribute(name: MDLVertexAttributePosition,
                                                             format: .float3,
                                                             offset: 0,
                                                             bufferIndex: 0)
         
-        vertexDescriptor.attributes[1] = MDLVertexAttribute(name: MDLVertexAttributeNormal,
+        vertexDescriptor.attributes[Int(Normal.rawValue)] = MDLVertexAttribute(name: MDLVertexAttributeNormal,
                                                             format: .float3,
                                                             offset: 12,
                                                             bufferIndex: 0)
         
-        vertexDescriptor.layouts[0] = MDLVertexBufferLayout(stride: 24)
+        vertexDescriptor.attributes[Int(UV.rawValue)] = MDLVertexAttribute(name: MDLVertexAttributeTextureCoordinate,
+                                                                           format: .float2,
+                                                                           offset: 24,
+                                                                           bufferIndex: 0)
+        
+        vertexDescriptor.layouts[0] = MDLVertexBufferLayout(stride: 32)
         
         return vertexDescriptor
     }()
