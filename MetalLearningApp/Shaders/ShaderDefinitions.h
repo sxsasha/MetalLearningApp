@@ -54,5 +54,6 @@ typedef enum {
 }  BufferIndices;
 
 typedef enum {
-  BaseColorTexture = 0
+    BaseColorTexture = 0,
+    NormalTexture = 1
 } Textures;

@@ -15,7 +15,7 @@ class Camera: Node {
         }
     }
     
-    var near: Float = 0.1 {
+    var near: Float = 0.001 {
         didSet {
             computeProjectionMatrix()
         }

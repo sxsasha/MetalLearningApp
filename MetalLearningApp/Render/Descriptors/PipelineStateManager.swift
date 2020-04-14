@@ -9,7 +9,7 @@
 import MetalKit
 
 class PipelineStateManager {
-    static var defaultPipelineState: MTLRenderPipelineState = {
+    static func makePipelineState() -> MTLRenderPipelineState {
         let vertexFunction = Renderer.library?.makeFunction(name: "vertex_main")
         let fragmentFunction = Renderer.library?.makeFunction(name: "fragment_main")
         
@@ -25,5 +25,5 @@ class PipelineStateManager {
         } catch let error {
             fatalError(error.localizedDescription)
         }
-    }()
+    }
 }

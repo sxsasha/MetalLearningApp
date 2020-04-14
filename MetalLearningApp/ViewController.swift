@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     private func configRender() {
         renderer = Renderer(metalView: mtkView)
         
+        // first iteration
 //        let train = Model(name: "train")
 //        train.position = [0, 0.9, 0]
 //        train.rotation = [0, radians(fromDegrees: 45), 0]
@@ -35,31 +36,22 @@ class ViewController: UIViewController {
 //        let treefir = Model(name: "treefir")
 //        treefir.position = [1.4, 0, 0]
         
-        let lowPolyHouse = Model(name: "lowpoly-house")
-        lowPolyHouse.position = [0, -1, 0]
-        lowPolyHouse.rotation = [0, radians(fromDegrees: 45), 0]
+        // second iteration
+//        let lowPolyHouse = Model(name: "lowpoly-house")
+//        lowPolyHouse.position = [0, -1, 0]
+//        lowPolyHouse.rotation = [0, radians(fromDegrees: 45), 0]
+//
+//        let plane = Model(name: "plane")
+//        plane.tiling = 40
+//        plane.position = [0, -1, 0]
+//        plane.scale = [40, 40, 40]
         
-        let plane = Model(name: "plane")
-        plane.tiling = 40
-        plane.position = [0, -1, 0]
-        plane.scale = [40, 40, 40]
+        let model = Model(name: "cottage1")
+        model.position = [0, 0, 0]
+        model.rotation = [0, radians(fromDegrees: 45), 0]
         
-        renderer?.models = [lowPolyHouse, plane]
-        renderer?.lights = [Light(type: Sunlight, position: [1, 2, -2]),
-                            Light(type: Ambientlight, color: [0.5, 1, 0], intensity: 0.1),
-                            Light(type: Pointlight,
-                                  position: [-0, 0.5, -0.5],
-                                  color: [1, 0, 0],
-                                  attenuation: [1, 3, 4]),
-                            Light(type: Spotlight,
-                                  position: [0.4, 0.8, 1],
-                                  color: [1, 0, 1],
-                                  attenuation: [1, 0.5, 0],
-                                  coneAngle: radians(fromDegrees: 40),
-                                  coneDirection: [-2, 0, -1.5],
-                                  coneAttenuation: 12)]
-        
-        renderer?.camera.position = [0, 0, -5]
+        renderer?.models = [model]
+        renderer?.camera.position = [0, 2, -6]
         //renderer?.camera.fovDegree = 40
     }
 }

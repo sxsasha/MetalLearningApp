@@ -18,7 +18,7 @@ class Model: Node {
     
     init(name: String,
          vertexDescriptor: MDLVertexDescriptor = VertexDescriptorManager.normalVertexDescriptor,
-         pipelineState: MTLRenderPipelineState = PipelineStateManager.defaultPipelineState) {
+         pipelineState: MTLRenderPipelineState = PipelineStateManager.makePipelineState()) {
         
         guard let assetURL = Bundle.main.url(forResource: name, withExtension: "obj") else {
             fatalError()

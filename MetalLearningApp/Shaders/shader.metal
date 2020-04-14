@@ -41,10 +41,12 @@ fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
                               constant Light *lights [[ buffer(LightsIndex) ]],
                               constant FragmentUniforms &fragmentUniforms [[ buffer(FragmentUniformsIndex) ]],
                               texture2d<float> baseColorTexture [[ texture(BaseColorTexture)]],
+                              texture2d<float> normalTexture [[ texture(NormalTexture)]],
                               sampler textureSampler [[sampler(0)]]) {
     // sunlight
     float3 baseColor = baseColorTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).rgb;
-    return float4(baseColor, 1);
+    float3 normalValue = normalTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).xyz;
+    normalValue = normalize(normalValue);
     
     float3 diffuseColor = float3(0);
     float3 normalDirection = normalize(fromVertex.worldNormal);

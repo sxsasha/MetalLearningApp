@@ -11,14 +11,17 @@ import MetalKit
 class Submesh {
     let submesh: MTKSubmesh
     let textures: Textures
+    let pipelineState: MTLRenderPipelineState!
     
     struct Textures {
         let baseColor: MTLTexture?
+        let normal: MTLTexture?
     }
     
     init(submesh: MTKSubmesh, mdlSubmesh: MDLSubmesh) {
         self.submesh = submesh
         self.textures = Textures(material: mdlSubmesh.material)
+        pipelineState = PipelineStateManager.makePipelineState()
     }
 }
 
@@ -40,5 +43,6 @@ private extension Submesh.Textures {
         }
         
         baseColor = property(with: .baseColor)
+        normal = property(with: .tangentSpaceNormal)
     }
 }

@@ -57,6 +57,8 @@ class Renderer: NSObject {
         
         metalView.delegate = self
         camera.aspect = Float(metalView.bounds.size.width / metalView.bounds.size.height)
+        lights = lighting()
+        fragmentUniforms.lightCount = UInt32(lights.count)
     }
 }
 
