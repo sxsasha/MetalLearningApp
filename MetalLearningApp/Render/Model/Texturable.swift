@@ -25,7 +25,7 @@ extension Texturable {
         
         let texture = try textureLoader.newTexture(URL: url,
                                                    options: [.origin: MTKTextureLoader.Origin.bottomLeft,
-                                                             .SRGB: false,
+                                                             .SRGB: true,
                                                              .generateMipmaps: NSNumber(booleanLiteral: true)])
         print("loaded texture: \(url.lastPathComponent)")
         

@@ -40,6 +40,8 @@
 		97C737BD23981EDB0085891F /* mushroom.obj in Resources */ = {isa = PBXBuildFile; fileRef = 97C737B923981EDB0085891F /* mushroom.obj */; };
 		97C737C023981F150085891F /* shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 97C737BF23981F150085891F /* shader.metal */; };
 		97D252DD23AA9B4700310104 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D252DC23AA9B4700310104 /* MathLibrary.swift */; };
+		97EE2CF02445FD56007AAB29 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EE2CEF2445FD56007AAB29 /* grass.png */; };
+		97EE2CF42446001F007AAB29 /* lowpoly-barn-color.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EE2CF32446001F007AAB29 /* lowpoly-barn-color.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		97D252DC23AA9B4700310104 /* MathLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
 		97D252DF23AACD3E00310104 /* ShaderDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderDefinitions.h; sourceTree = "<group>"; };
 		97D252E023AACE1500310104 /* MetalLearningApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MetalLearningApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		97EE2CEF2445FD56007AAB29 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
+		97EE2CF32446001F007AAB29 /* lowpoly-barn-color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lowpoly-barn-color.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		972D664123D204B1006C11C6 /* Plane */ = {
 			isa = PBXGroup;
 			children = (
+				97EE2CEF2445FD56007AAB29 /* grass.png */,
 				972D664323D204C7006C11C6 /* plane.png */,
 				972D664223D204C7006C11C6 /* plane.mtl */,
 				972D664423D204C7006C11C6 /* plane.obj */,
@@ -163,6 +168,7 @@
 		97A91F5F23CF995B001835D1 /* Low Poly House */ = {
 			isa = PBXGroup;
 			children = (
+				97EE2CF32446001F007AAB29 /* lowpoly-barn-color.png */,
 				97A91F6023CF996F001835D1 /* lowpoly-house.png */,
 				97A91F6123CF996F001835D1 /* lowpoly-house.mtl */,
 				97A91F6223CF996F001835D1 /* lowpoly-house.obj */,
@@ -320,6 +326,7 @@
 				972D664723D204C8006C11C6 /* plane.obj in Resources */,
 				972D664623D204C8006C11C6 /* plane.png in Resources */,
 				97A91F6523CF9970001835D1 /* lowpoly-house.obj in Resources */,
+				97EE2CF42446001F007AAB29 /* lowpoly-barn-color.png in Resources */,
 				97A91F6323CF9970001835D1 /* lowpoly-house.png in Resources */,
 				97C737BA23981EDB0085891F /* train.obj in Resources */,
 				97C737BB23981EDB0085891F /* train.mtl in Resources */,
@@ -327,6 +334,7 @@
 				97C737A523981D0A0085891F /* Assets.xcassets in Resources */,
 				97C737A323981D090085891F /* Main.storyboard in Resources */,
 				978029DF23C788CF007B93FD /* treefir.obj in Resources */,
+				97EE2CF02445FD56007AAB29 /* grass.png in Resources */,
 				97A91F6423CF9970001835D1 /* lowpoly-house.mtl in Resources */,
 				97C737BC23981EDB0085891F /* mushroom.mtl in Resources */,
 				97C737BD23981EDB0085891F /* mushroom.obj in Resources */,

@@ -16,6 +16,7 @@ class SamplerStateManager {
         descriptor.minFilter = .linear
         descriptor.magFilter = .linear
         descriptor.mipFilter = .linear
+        descriptor.maxAnisotropy = 8
         let samplerState = Renderer.device.makeSamplerState(descriptor: descriptor)
         
         return samplerState
