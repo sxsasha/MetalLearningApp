@@ -47,6 +47,7 @@ fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
     float3 baseColor = baseColorTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).rgb;
     float3 normalValue = normalTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).xyz;
     normalValue = normalize(normalValue);
+    //return float4(normalValue, 1);
     
     float3 diffuseColor = float3(0);
     float3 normalDirection = normalize(fromVertex.worldNormal);

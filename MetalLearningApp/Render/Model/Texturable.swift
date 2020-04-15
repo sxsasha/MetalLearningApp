@@ -19,13 +19,16 @@ extension Texturable {
         
         guard let url = Bundle.main.url(forResource: imageName,
                                         withExtension: fileExtension) else {
-                                            print("Failed to load \(imageName)")
-                                            return nil
+                                            print("Failed to load \(imageName)\n")
+                                            return try textureLoader.newTexture(name: imageName,
+                                                                                scaleFactor: 1.0,
+                                                                                bundle: Bundle.main,
+                                                                                options: nil)
         }
         
         let texture = try textureLoader.newTexture(URL: url,
                                                    options: [.origin: MTKTextureLoader.Origin.bottomLeft,
-                                                             .SRGB: true,
+                                                             .SRGB: false,
                                                              .generateMipmaps: NSNumber(booleanLiteral: true)])
         print("loaded texture: \(url.lastPathComponent)")
         

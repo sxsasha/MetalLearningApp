@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970027BA24466FD100D0A76A /* cottage1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 970027B924466FD100D0A76A /* cottage1.obj */; };
 		972D664523D204C8006C11C6 /* plane.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 972D664223D204C7006C11C6 /* plane.mtl */; };
 		972D664623D204C8006C11C6 /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 972D664323D204C7006C11C6 /* plane.png */; };
 		972D664723D204C8006C11C6 /* plane.obj in Resources */ = {isa = PBXBuildFile; fileRef = 972D664423D204C7006C11C6 /* plane.obj */; };
@@ -43,7 +44,6 @@
 		97EE2CF02445FD56007AAB29 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EE2CEF2445FD56007AAB29 /* grass.png */; };
 		97EE2CF42446001F007AAB29 /* lowpoly-barn-color.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EE2CF32446001F007AAB29 /* lowpoly-barn-color.png */; };
 		97EE2CF824465CE8007AAB29 /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE2CF724465CE8007AAB29 /* Lighting.swift */; };
-		97EE2D0024465F7B007AAB29 /* cottage1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 97EE2CFA24465F7B007AAB29 /* cottage1.obj */; };
 		97EE2D0124465F7B007AAB29 /* cottage2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 97EE2CFB24465F7B007AAB29 /* cottage2.mtl */; };
 		97EE2D0224465F7B007AAB29 /* cottage1.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 97EE2CFC24465F7B007AAB29 /* cottage1.mtl */; };
 		97EE2D0324465F7B007AAB29 /* cottage2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 97EE2CFD24465F7B007AAB29 /* cottage2.obj */; };
@@ -57,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		970027B924466FD100D0A76A /* cottage1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cottage1.obj; path = "../../../../Code Begbie C., Horga M. - Metal by Tutorials (1st Edition) - 2018_code/07-maps-and-materials/starter/Materials/Materials/Models/cottage1.obj"; sourceTree = "<group>"; };
 		972D664223D204C7006C11C6 /* plane.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.mtl; sourceTree = "<group>"; };
 		972D664323D204C7006C11C6 /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
 		972D664423D204C7006C11C6 /* plane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.obj; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		97EE2CEF2445FD56007AAB29 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
 		97EE2CF32446001F007AAB29 /* lowpoly-barn-color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lowpoly-barn-color.png"; sourceTree = "<group>"; };
 		97EE2CF724465CE8007AAB29 /* Lighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lighting.swift; sourceTree = "<group>"; };
-		97EE2CFA24465F7B007AAB29 /* cottage1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cottage1.obj; sourceTree = "<group>"; };
 		97EE2CFB24465F7B007AAB29 /* cottage2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cottage2.mtl; sourceTree = "<group>"; };
 		97EE2CFC24465F7B007AAB29 /* cottage1.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cottage1.mtl; sourceTree = "<group>"; };
 		97EE2CFD24465F7B007AAB29 /* cottage2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cottage2.obj; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				97EE2CFC24465F7B007AAB29 /* cottage1.mtl */,
-				97EE2CFA24465F7B007AAB29 /* cottage1.obj */,
+				970027B924466FD100D0A76A /* cottage1.obj */,
 				97EE2CFB24465F7B007AAB29 /* cottage2.mtl */,
 				97EE2CFD24465F7B007AAB29 /* cottage2.obj */,
 				97EE2CFE24465F7B007AAB29 /* cube.mtl */,
@@ -367,13 +367,13 @@
 			files = (
 				97EE2D0B24465FAF007AAB29 /* cube-color.png in Resources */,
 				972D664523D204C8006C11C6 /* plane.mtl in Resources */,
-				97EE2D0024465F7B007AAB29 /* cottage1.obj in Resources */,
 				97EE2D0F24465FC3007AAB29 /* cottage-color.png in Resources */,
 				97EE2D0924465FA8007AAB29 /* cube-normal.png in Resources */,
 				978029E023C788CF007B93FD /* treefir.mtl in Resources */,
 				972D664723D204C8006C11C6 /* plane.obj in Resources */,
 				972D664623D204C8006C11C6 /* plane.png in Resources */,
 				97A91F6523CF9970001835D1 /* lowpoly-house.obj in Resources */,
+				970027BA24466FD100D0A76A /* cottage1.obj in Resources */,
 				97EE2CF42446001F007AAB29 /* lowpoly-barn-color.png in Resources */,
 				97EE2D0324465F7B007AAB29 /* cottage2.obj in Resources */,
 				97EE2D0424465F7B007AAB29 /* cube.mtl in Resources */,

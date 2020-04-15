@@ -84,27 +84,39 @@ extension Renderer: MTKViewDelegate {
                                        index: Int(LightsIndex.rawValue))
         
         for model in models {
+            // set model and normal matrix to uniforms
             uniforms.modelMatrix = model.modelMatrix
             uniforms.normalMatrix = float3x3(normalFrom4x4: model.modelMatrix)
             fragmentUniforms.tiling = model.tiling
             
+            // set pipeline state
             renderEncoder.setRenderPipelineState(model.pipelineState)
+            
+            // set uniforms to vertex shader
             renderEncoder.setVertexBytes(&uniforms,
                                          length: MemoryLayout<Uniforms>.stride,
                                          index: Int(UniformsIndex.rawValue))
-            
-            renderEncoder.setVertexBuffer(model.vertexBuffer,
-                                          offset: 0,
-                                          index: Int(VerticesIndex.rawValue))
             renderEncoder.setFragmentBytes(&fragmentUniforms,
                                            length: MemoryLayout<FragmentUniforms>.stride,
                                            index: Int(FragmentUniformsIndex.rawValue))
+            
+            // set fragment sampler
             renderEncoder.setFragmentSamplerState(model.samplerState, index: 0)
             
+            // set vertex buffer to vertex shader
+            renderEncoder.setVertexBuffer(model.vertexBuffer,
+                                          offset: 0,
+                                          index: Int(VerticesIndex.rawValue))
+            
             for modelSubmesh in model.submeshes {
+                // set textures
                 renderEncoder.setFragmentTexture(modelSubmesh.textures.baseColor,
                                                  index: Int(BaseColorTexture.rawValue))
                 
+                renderEncoder.setFragmentTexture(modelSubmesh.textures.normal,
+                                                 index: Int(NormalTexture.rawValue))
+                
+                // send submesh to draw
                 renderEncoder.drawIndexedPrimitives(type: .triangle,
                                                     indexCount: modelSubmesh.submesh.indexCount,
                                                     indexType: modelSubmesh.submesh.indexType,
