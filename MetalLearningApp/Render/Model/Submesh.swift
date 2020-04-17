@@ -21,9 +21,10 @@ class Submesh {
     
     init(submesh: MTKSubmesh, mdlSubmesh: MDLSubmesh) {
         self.submesh = submesh
-        self.textures = Textures(material: mdlSubmesh.material)
-        pipelineState = Submesh.makePipelineState(textures: textures)
+        
+        textures = Textures(material: mdlSubmesh.material)
         material = Material(material: mdlSubmesh.material)
+        pipelineState = Submesh.makePipelineState(textures: textures)
     }
 }
 

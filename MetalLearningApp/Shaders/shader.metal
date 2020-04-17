@@ -48,8 +48,8 @@ fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
                               constant Light *lights [[ buffer(LightsIndex) ]],
                               constant FragmentUniforms &fragmentUniforms [[ buffer(FragmentUniformsIndex) ]],
                               constant Material &material [[ buffer(Materials) ]],
-                              texture2d<float> baseColorTexture [[ texture(BaseColorTexture)]],
-                              texture2d<float> normalTexture [[ texture(NormalTexture)]],
+                              texture2d<float> baseColorTexture [[ texture(BaseColorTexture), function_constant(hasColorTexture) ]],
+                              texture2d<float> normalTexture [[ texture(NormalTexture), function_constant(hasNormalTexture) ]],
                               sampler textureSampler [[sampler(0)]]) {
     // Base Color
     float3 baseColor;

@@ -17,7 +17,6 @@ class Model: Node {
     
     init(name: String,
          vertexDescriptor: MDLVertexDescriptor = VertexDescriptorManager.normalVertexDescriptor) {
-        
         guard let assetURL = Bundle.main.url(forResource: name, withExtension: "obj") else {
             fatalError()
         }
@@ -35,16 +34,15 @@ class Model: Node {
         // get mtkMesh from MDLMesh
         let mesh = try! MTKMesh(mesh: mdlMesh, device: Renderer.device)
         self.mesh = mesh
-        
-        self.submeshes = mdlMesh.submeshes?.enumerated().compactMap({
-            if let submesh = $0.element as? MDLSubmesh {
-                return Submesh(submesh: mesh.submeshes[$0.offset],
-                        mdlSubmesh: submesh)} else {
+        self.vertexBuffer = mesh.vertexBuffers[0].buffer
+        self.submeshes = mdlMesh.submeshes?.enumerated().compactMap({ index, submesh in
+            if let submesh = submesh as? MDLSubmesh {
+                return Submesh(submesh: mesh.submeshes[index],
+                               mdlSubmesh: submesh)} else {
                 return nil
             }
         }) ?? []
         
-        self.vertexBuffer = mesh.vertexBuffers[0].buffer
         self.samplerState = SamplerStateManager.buildRepeatSamplerState
             
         super.init()
