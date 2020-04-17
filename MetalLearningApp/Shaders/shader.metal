@@ -17,6 +17,8 @@ struct VertexIn {
     float4 position [[ attribute(Position) ]];
     float3 normal [[ attribute(Normal) ]];
     float2 uv [[ attribute(UV) ]];
+    float3 tangent [[ attribute(Tangent) ]];
+    float3 bitangent [[ attribute(Bitangent) ]];
 };
 
 struct VertexOut {
@@ -24,6 +26,8 @@ struct VertexOut {
     float3 worldPosition;
     float3 worldNormal;
     float2 uv;
+    float3 worldTangent;
+    float3 worldBitangent;
 };
 
 vertex VertexOut vertex_main(const VertexIn vertex_in [[ stage_in ]],
@@ -32,6 +36,8 @@ vertex VertexOut vertex_main(const VertexIn vertex_in [[ stage_in ]],
     out.position = uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix * vertex_in.position;
     out.worldPosition = (uniforms.modelMatrix * vertex_in.position).xyz;
     out.worldNormal = uniforms.normalMatrix * vertex_in.normal;
+    out.worldTangent = uniforms.normalMatrix * vertex_in.tangent;
+    out.worldBitangent = uniforms.normalMatrix * vertex_in.bitangent;
     out.uv = vertex_in.uv;
     
     return out;
@@ -46,11 +52,14 @@ fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
     // sunlight
     float3 baseColor = baseColorTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).rgb;
     float3 normalValue = normalTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).xyz;
+    normalValue = normalValue * 2 - 1;
     normalValue = normalize(normalValue);
-    //return float4(normalValue, 1);
     
     float3 diffuseColor = float3(0);
-    float3 normalDirection = normalize(fromVertex.worldNormal);
+    float3 normalDirection = float3x3(fromVertex.worldTangent,
+                                      fromVertex.worldBitangent,
+                                      fromVertex.worldNormal) * normalValue;
+    normalDirection = normalize(normalDirection);
     
     // ambient
     float3 ambientColor = 0;

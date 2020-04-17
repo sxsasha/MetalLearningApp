@@ -10,8 +10,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.557971
 illum 2
-map_tangentSpaceNormal cottage-normal.png
-map_Kd cottage-color.png
+map_tangentSpaceNormal cottage_normal
+map_Kd cottage_color
 
 newmtl roof
 Ns 96.078431
@@ -22,8 +22,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_tangentSpaceNormal cottage-normal.png
-map_Kd cottage-color.png
+map_tangentSpaceNormal cottage_normal
+map_Kd cottage_color
 
 newmtl wall
 Ns 96.078431
@@ -34,8 +34,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_tangentSpaceNormal cottage-normal.png
-map_Kd cottage-color.png
+map_tangentSpaceNormal cottage_normal
+map_Kd cottage_color
 
 newmtl wood
 Ns 96.078431
@@ -46,6 +46,6 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_tangentSpaceNormal cottage-normal.png
-map_Kd cottage-color.png
+map_tangentSpaceNormal cottage_normal
+map_Kd cottage_color
 

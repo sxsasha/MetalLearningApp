@@ -104,9 +104,9 @@ extension Renderer: MTKViewDelegate {
             renderEncoder.setFragmentSamplerState(model.samplerState, index: 0)
             
             // set vertex buffer to vertex shader
-            renderEncoder.setVertexBuffer(model.vertexBuffer,
-                                          offset: 0,
-                                          index: Int(VerticesIndex.rawValue))
+            for (index, vertexBuffer) in model.mesh.vertexBuffers.enumerated() {
+                renderEncoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: index)
+            }
             
             for modelSubmesh in model.submeshes {
                 // set textures

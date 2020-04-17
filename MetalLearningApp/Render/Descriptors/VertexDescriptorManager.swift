@@ -38,7 +38,19 @@ class VertexDescriptorManager {
                                                                            offset: 24,
                                                                            bufferIndex: 0)
         
+        vertexDescriptor.attributes[Int(Tangent.rawValue)] = MDLVertexAttribute(name: MDLVertexAttributeTangent,
+                                                                                format: .float3,
+                                                                                offset: 0,
+                                                                                bufferIndex: 1)
+        
+        vertexDescriptor.attributes[Int(Bitangent.rawValue)] = MDLVertexAttribute(name: MDLVertexAttributeBitangent,
+                                                                                format: .float3,
+                                                                                offset: 0,
+                                                                                bufferIndex: 2)
+        
         vertexDescriptor.layouts[0] = MDLVertexBufferLayout(stride: 32)
+        vertexDescriptor.layouts[1] = MDLVertexBufferLayout(stride: 12)
+        vertexDescriptor.layouts[2] = MDLVertexBufferLayout(stride: 12)
         
         return vertexDescriptor
     }()

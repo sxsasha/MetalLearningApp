@@ -46,13 +46,13 @@ class ViewController: UIViewController {
 //        plane.position = [0, -1, 0]
 //        plane.scale = [40, 40, 40]
         
+        // third iteration
         let model = Model(name: "cottage1")
         model.position = [0, 0, 0]
         model.rotation = [0, radians(fromDegrees: 45), 0]
         
         renderer?.models = [model]
         renderer?.camera.position = [0, 2, -6]
-        //renderer?.camera.fovDegree = 40
     }
 }
 

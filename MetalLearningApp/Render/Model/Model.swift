@@ -30,10 +30,9 @@ class Model: Node {
                              bufferAllocator: allocator)
         
         let mdlMesh = asset.object(at: 0) as! MDLMesh
-//        mdlMesh.addNormals(withAttributeNamed: MDLVertexAttributeNormal, creaseThreshold: 1.0)
-//        mdlMesh.addTangentBasis(forTextureCoordinateAttributeNamed: MDLVertexAttributeTextureCoordinate,
-//                                normalAttributeNamed: MDLVertexAttributeTangent,
-//                                tangentAttributeNamed: MDLVertexAttributeBitangent)
+        mdlMesh.addTangentBasis(forTextureCoordinateAttributeNamed: MDLVertexAttributeTextureCoordinate,
+                                tangentAttributeNamed: MDLVertexAttributeTangent,
+                                bitangentAttributeNamed: MDLVertexAttributeBitangent)
         
         // get mtkMesh from MDLMesh
         let mesh = try! MTKMesh(mesh: mdlMesh, device: Renderer.device)
