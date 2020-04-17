@@ -12,13 +12,11 @@ class Model: Node {
     let mesh: MTKMesh
     let submeshes: [Submesh]
     let vertexBuffer: MTLBuffer
-    let pipelineState: MTLRenderPipelineState
     let samplerState: MTLSamplerState?
     var tiling: UInt32 = 1
     
     init(name: String,
-         vertexDescriptor: MDLVertexDescriptor = VertexDescriptorManager.normalVertexDescriptor,
-         pipelineState: MTLRenderPipelineState = PipelineStateManager.makePipelineState()) {
+         vertexDescriptor: MDLVertexDescriptor = VertexDescriptorManager.normalVertexDescriptor) {
         
         guard let assetURL = Bundle.main.url(forResource: name, withExtension: "obj") else {
             fatalError()
@@ -47,7 +45,6 @@ class Model: Node {
         }) ?? []
         
         self.vertexBuffer = mesh.vertexBuffers[0].buffer
-        self.pipelineState = pipelineState
         self.samplerState = SamplerStateManager.buildRepeatSamplerState
             
         super.init()

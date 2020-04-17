@@ -52,10 +52,20 @@ typedef enum {
     VerticesIndex = 0,
     UniformsIndex = 11,
     LightsIndex = 12,
-    FragmentUniformsIndex = 13
+    FragmentUniformsIndex = 13,
+    Materials = 14
 }  BufferIndices;
 
 typedef enum {
     BaseColorTexture = 0,
     NormalTexture = 1
 } Textures;
+
+typedef struct {
+    vector_float3 baseColor;
+    vector_float3 specularColor;
+    float roughness;
+    float metallic;
+    vector_float3 ambientOcclusion;
+    float shininess;
+} Material;

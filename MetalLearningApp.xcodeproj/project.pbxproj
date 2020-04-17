@@ -27,7 +27,6 @@
 		97C5CE8C23AD0908001576A8 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE8B23AD0908001576A8 /* Camera.swift */; };
 		97C5CE8E23AD0E36001576A8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE8D23AD0E36001576A8 /* Model.swift */; };
 		97C5CE9023AD1623001576A8 /* VertexDescriptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE8F23AD1623001576A8 /* VertexDescriptorManager.swift */; };
-		97C5CE9223AD18A5001576A8 /* PipelineStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5CE9123AD18A5001576A8 /* PipelineStateManager.swift */; };
 		97C7379C23981D090085891F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C7379B23981D090085891F /* AppDelegate.swift */; };
 		97C7379E23981D090085891F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C7379D23981D090085891F /* SceneDelegate.swift */; };
 		97C737A023981D090085891F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C7379F23981D090085891F /* ViewController.swift */; };
@@ -76,7 +75,6 @@
 		97C5CE8B23AD0908001576A8 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		97C5CE8D23AD0E36001576A8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		97C5CE8F23AD1623001576A8 /* VertexDescriptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDescriptorManager.swift; sourceTree = "<group>"; };
-		97C5CE9123AD18A5001576A8 /* PipelineStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineStateManager.swift; sourceTree = "<group>"; };
 		97C7379823981D090085891F /* MetalLearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C7379B23981D090085891F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C7379D23981D090085891F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			children = (
 				972D664923D20FDA006C11C6 /* SamplerStateManager.swift */,
 				97C5CE8F23AD1623001576A8 /* VertexDescriptorManager.swift */,
-				97C5CE9123AD18A5001576A8 /* PipelineStateManager.swift */,
 			);
 			path = Descriptors;
 			sourceTree = "<group>";
@@ -413,7 +410,6 @@
 				97C7379E23981D090085891F /* SceneDelegate.swift in Sources */,
 				97C737C023981F150085891F /* shader.metal in Sources */,
 				97D252DD23AA9B4700310104 /* MathLibrary.swift in Sources */,
-				97C5CE9223AD18A5001576A8 /* PipelineStateManager.swift in Sources */,
 				9762F7CF23B102A6008AAD96 /* DebugLights.swift in Sources */,
 				97C5CE8A23AD045C001576A8 /* Node.swift in Sources */,
 				972FC2A823D1DF110059684C /* Submesh.swift in Sources */,

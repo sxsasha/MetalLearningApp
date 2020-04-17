@@ -89,9 +89,6 @@ extension Renderer: MTKViewDelegate {
             uniforms.normalMatrix = float3x3(normalFrom4x4: model.modelMatrix)
             fragmentUniforms.tiling = model.tiling
             
-            // set pipeline state
-            renderEncoder.setRenderPipelineState(model.pipelineState)
-            
             // set uniforms to vertex shader
             renderEncoder.setVertexBytes(&uniforms,
                                          length: MemoryLayout<Uniforms>.stride,
@@ -109,12 +106,21 @@ extension Renderer: MTKViewDelegate {
             }
             
             for modelSubmesh in model.submeshes {
+                // set pipeline state
+                renderEncoder.setRenderPipelineState(modelSubmesh.pipelineState)
+                
                 // set textures
                 renderEncoder.setFragmentTexture(modelSubmesh.textures.baseColor,
                                                  index: Int(BaseColorTexture.rawValue))
                 
                 renderEncoder.setFragmentTexture(modelSubmesh.textures.normal,
                                                  index: Int(NormalTexture.rawValue))
+                
+                // set the materials here
+                var material = modelSubmesh.material
+                renderEncoder.setFragmentBytes(&material,
+                                               length: MemoryLayout<Material>.stride,
+                                               index: Int(Materials.rawValue))
                 
                 // send submesh to draw
                 renderEncoder.drawIndexedPrimitives(type: .triangle,

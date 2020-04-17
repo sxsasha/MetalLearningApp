@@ -11,7 +11,8 @@
 
 using namespace metal;
 
-//#import "MetalLearningApp-Bridging-Header.h"
+constant bool hasColorTexture [[ function_constant(0) ]];
+constant bool hasNormalTexture [[ function_constant(1) ]];
 
 struct VertexIn {
     float4 position [[ attribute(Position) ]];
@@ -46,13 +47,25 @@ vertex VertexOut vertex_main(const VertexIn vertex_in [[ stage_in ]],
 fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
                               constant Light *lights [[ buffer(LightsIndex) ]],
                               constant FragmentUniforms &fragmentUniforms [[ buffer(FragmentUniformsIndex) ]],
+                              constant Material &material [[ buffer(Materials) ]],
                               texture2d<float> baseColorTexture [[ texture(BaseColorTexture)]],
                               texture2d<float> normalTexture [[ texture(NormalTexture)]],
                               sampler textureSampler [[sampler(0)]]) {
-    // sunlight
-    float3 baseColor = baseColorTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).rgb;
-    float3 normalValue = normalTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).xyz;
-    normalValue = normalValue * 2 - 1;
+    // Base Color
+    float3 baseColor;
+    if (hasColorTexture) {
+        baseColor = baseColorTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).rgb;
+    } else {
+        baseColor = material.baseColor;
+    }
+
+    float3 normalValue;
+    if (hasNormalTexture) {
+        normalValue = normalTexture.sample(textureSampler, fromVertex.uv * fragmentUniforms.tiling).xyz;
+        normalValue = normalValue * 2 - 1;
+    } else {
+        normalValue = fromVertex.worldNormal;
+    }
     normalValue = normalize(normalValue);
     
     float3 diffuseColor = float3(0);
@@ -66,8 +79,8 @@ fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
     
     // specular
     float3 specularColor = 0;
-    float materialShininess = 32;
-    float3 materialSpecularColor = float3(1, 1, 1);
+    float materialShininess = material.shininess;
+    float3 materialSpecularColor = material.specularColor;
     
     for (uint i = 0; i < fragmentUniforms.lightCount; i++) {
         Light light = lights[i];

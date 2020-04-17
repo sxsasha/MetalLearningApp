@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 //        plane.scale = [40, 40, 40]
         
         // third iteration
-        let model = Model(name: "cottage1")
+        let model = Model(name: "cottage2")
         model.position = [0, 0, 0]
         model.rotation = [0, radians(fromDegrees: 45), 0]
         
