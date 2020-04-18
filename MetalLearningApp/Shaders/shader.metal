@@ -68,17 +68,16 @@ fragment float4 fragment_main(VertexOut fromVertex [[ stage_in ]],
     }
     normalValue = normalize(normalValue);
     
-    float3 diffuseColor = float3(0);
+    
     float3 normalDirection = float3x3(fromVertex.worldTangent,
                                       fromVertex.worldBitangent,
                                       fromVertex.worldNormal) * normalValue;
     normalDirection = normalize(normalDirection);
     
-    // ambient
+    float3 diffuseColor = 0;
     float3 ambientColor = 0;
-    
-    // specular
     float3 specularColor = 0;
+    
     float materialShininess = material.shininess;
     float3 materialSpecularColor = material.specularColor;
     
