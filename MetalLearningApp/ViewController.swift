@@ -40,18 +40,28 @@ class ViewController: UIViewController {
 //        let lowPolyHouse = Model(name: "lowpoly-house")
 //        lowPolyHouse.position = [0, -1, 0]
 //        lowPolyHouse.rotation = [0, radians(fromDegrees: 45), 0]
+
+        let plane = Model(name: "plane")
+        plane.tiling = 40
+        plane.position = [0, 0, 0]
+        plane.scale = [40, 40, 40]
+        
+        let cottage = Model(name: "cottage1")
+        cottage.position = [0, 0, 0]
+        cottage.scale = [1.5, 1.5, 1.5]
+        cottage.rotation = [0, radians(fromDegrees: 45), 0]
+        
+//        let rose = Model(name: "rose")
+//        rose.position = [7, 0, 0]
+//        rose.scale = [0.5, 0.5, 0.5]
+//        rose.rotation = [0, 0, 0]
 //
-//        let plane = Model(name: "plane")
-//        plane.tiling = 40
-//        plane.position = [0, -1, 0]
-//        plane.scale = [40, 40, 40]
+//        let flower = Model(name: "chrystanthemum_flower")
+//        flower.position = [10, 0, 0]
+//        flower.rotation = [0, 0, 0]
+//        flower.scale = [0.5, 0.5, 0.5]
         
-        // third iteration
-        let model = Model(name: "cottage1")
-        model.position = [0, 0, 0]
-        model.rotation = [0, radians(fromDegrees: 45), 0]
-        
-        renderer?.models = [model]
+        renderer?.models = [plane, cottage]
         renderer?.camera.position = [0, 2, -6]
     }
 }

@@ -1,0 +1,15 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl Chrystanthemum_final
+Ns 323.999994
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.0 0.0 0.0
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Chrystanthemum_final_baseColor
+map_tangentSpaceNormal Chrystanthemum_final_normal
+map_roughness Chrystanthemum_final_metallicRoughness

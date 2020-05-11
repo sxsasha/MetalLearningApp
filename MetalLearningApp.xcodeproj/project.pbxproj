@@ -15,6 +15,10 @@
 		972D664A23D20FDA006C11C6 /* SamplerStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972D664923D20FDA006C11C6 /* SamplerStateManager.swift */; };
 		972FC2A523D1D4B60059684C /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972FC2A423D1D4B60059684C /* Texturable.swift */; };
 		972FC2A823D1DF110059684C /* Submesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972FC2A723D1DF110059684C /* Submesh.swift */; };
+		974437112451F5D5001C35F0 /* rose.obj in Resources */ = {isa = PBXBuildFile; fileRef = 9744370E2451F5D5001C35F0 /* rose.obj */; };
+		974437122451F5D5001C35F0 /* rose.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 9744370F2451F5D5001C35F0 /* rose.mtl */; };
+		9744371A2451F64C001C35F0 /* chrystanthemum_flower.obj in Resources */ = {isa = PBXBuildFile; fileRef = 974437152451F64B001C35F0 /* chrystanthemum_flower.obj */; };
+		9744371C2451F64C001C35F0 /* chrystanthemum_flower.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 974437172451F64C001C35F0 /* chrystanthemum_flower.mtl */; };
 		9762F7CA23B0F3A0008AAD96 /* Light+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9762F7C923B0F3A0008AAD96 /* Light+Extension.swift */; };
 		9762F7CE23B102A6008AAD96 /* DebugLights.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9762F7CC23B102A6008AAD96 /* DebugLights.metal */; };
 		9762F7CF23B102A6008AAD96 /* DebugLights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9762F7CD23B102A6008AAD96 /* DebugLights.swift */; };
@@ -63,6 +67,10 @@
 		972D664923D20FDA006C11C6 /* SamplerStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateManager.swift; sourceTree = "<group>"; };
 		972FC2A423D1D4B60059684C /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		972FC2A723D1DF110059684C /* Submesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submesh.swift; sourceTree = "<group>"; };
+		9744370E2451F5D5001C35F0 /* rose.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rose.obj; sourceTree = "<group>"; };
+		9744370F2451F5D5001C35F0 /* rose.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rose.mtl; sourceTree = "<group>"; };
+		974437152451F64B001C35F0 /* chrystanthemum_flower.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chrystanthemum_flower.obj; sourceTree = "<group>"; };
+		974437172451F64C001C35F0 /* chrystanthemum_flower.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chrystanthemum_flower.mtl; sourceTree = "<group>"; };
 		9762F7C923B0F3A0008AAD96 /* Light+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Light+Extension.swift"; sourceTree = "<group>"; };
 		9762F7CC23B102A6008AAD96 /* DebugLights.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DebugLights.metal; sourceTree = "<group>"; };
 		9762F7CD23B102A6008AAD96 /* DebugLights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLights.swift; sourceTree = "<group>"; };
@@ -147,6 +155,24 @@
 				97EE2CF724465CE8007AAB29 /* Lighting.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9744370C2451F5C2001C35F0 /* Rose */ = {
+			isa = PBXGroup;
+			children = (
+				9744370F2451F5D5001C35F0 /* rose.mtl */,
+				9744370E2451F5D5001C35F0 /* rose.obj */,
+			);
+			path = Rose;
+			sourceTree = "<group>";
+		};
+		974437132451F63B001C35F0 /* Chrystanthemum_flower */ = {
+			isa = PBXGroup;
+			children = (
+				974437172451F64C001C35F0 /* chrystanthemum_flower.mtl */,
+				974437152451F64B001C35F0 /* chrystanthemum_flower.obj */,
+			);
+			path = Chrystanthemum_flower;
 			sourceTree = "<group>";
 		};
 		9762F7CB23B1029C008AAD96 /* Debug */ = {
@@ -256,6 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				970D9361244A02F3005620FF /* Textures.xcassets */,
+				974437132451F63B001C35F0 /* Chrystanthemum_flower */,
+				9744370C2451F5C2001C35F0 /* Rose */,
 				97EE2CF924465F5C007AAB29 /* House */,
 				972D664123D204B1006C11C6 /* Plane */,
 				97A91F5F23CF995B001835D1 /* Low Poly House */,
@@ -366,6 +394,7 @@
 				972D664723D204C8006C11C6 /* plane.obj in Resources */,
 				972D664623D204C8006C11C6 /* plane.png in Resources */,
 				97A91F6523CF9970001835D1 /* lowpoly-house.obj in Resources */,
+				9744371A2451F64C001C35F0 /* chrystanthemum_flower.obj in Resources */,
 				97EE2CF42446001F007AAB29 /* lowpoly-barn-color.png in Resources */,
 				97EE2D0324465F7B007AAB29 /* cottage2.obj in Resources */,
 				97EE2D0424465F7B007AAB29 /* cube.mtl in Resources */,
@@ -374,6 +403,8 @@
 				97EE2D0124465F7B007AAB29 /* cottage2.mtl in Resources */,
 				97C737BA23981EDB0085891F /* train.obj in Resources */,
 				97C737BB23981EDB0085891F /* train.mtl in Resources */,
+				9744371C2451F64C001C35F0 /* chrystanthemum_flower.mtl in Resources */,
+				974437112451F5D5001C35F0 /* rose.obj in Resources */,
 				97C737A823981D0A0085891F /* LaunchScreen.storyboard in Resources */,
 				97C737A523981D0A0085891F /* Assets.xcassets in Resources */,
 				97C737A323981D090085891F /* Main.storyboard in Resources */,
@@ -386,6 +417,7 @@
 				970D9364244A4F6B005620FF /* cottage1.obj in Resources */,
 				97EE2D0224465F7B007AAB29 /* cottage1.mtl in Resources */,
 				97EE2D0724465F9C007AAB29 /* cube-roughness.png in Resources */,
+				974437122451F5D5001C35F0 /* rose.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
