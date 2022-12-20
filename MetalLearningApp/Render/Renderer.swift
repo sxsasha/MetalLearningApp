@@ -116,6 +116,9 @@ extension Renderer: MTKViewDelegate {
                 renderEncoder.setFragmentTexture(modelSubmesh.textures.normal,
                                                  index: Int(NormalTexture.rawValue))
                 
+                renderEncoder.setFragmentTexture(modelSubmesh.textures.roughness,
+                                                 index: Int(RoughnessTexture.rawValue))
+                
                 // set the materials here
                 var material = modelSubmesh.material
                 renderEncoder.setFragmentBytes(&material,

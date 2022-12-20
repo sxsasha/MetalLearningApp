@@ -10,6 +10,6 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd cube-color.png
-#map_roughness cube-roughness.png
-#map_tangentSpaceNormal cube-normal.png
+map_Kd cube-color
+map_roughness cube-roughness
+map_tangentSpaceNormal cube-normal

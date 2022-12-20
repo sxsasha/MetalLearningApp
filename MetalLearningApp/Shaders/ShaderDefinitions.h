@@ -58,7 +58,10 @@ typedef enum {
 
 typedef enum {
     BaseColorTexture = 0,
-    NormalTexture = 1
+    NormalTexture = 1,
+    RoughnessTexture = 2,
+    MetallicTexture = 3,
+    AOTexture = 4
 } Textures;
 
 typedef struct {

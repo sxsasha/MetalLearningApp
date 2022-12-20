@@ -51,6 +51,11 @@ class ViewController: UIViewController {
         cottage.scale = [1.5, 1.5, 1.5]
         cottage.rotation = [0, radians(fromDegrees: 45), 0]
         
+        let cube = Model(name: "cube")
+        cube.position = [0, 0.5, 0]
+        cube.scale = [0.5, 0.5, 0.5]
+        cube.rotation = [0, 0, 0]
+        
 //        let rose = Model(name: "rose")
 //        rose.position = [7, 0, 0]
 //        rose.scale = [0.5, 0.5, 0.5]
@@ -61,7 +66,7 @@ class ViewController: UIViewController {
 //        flower.rotation = [0, 0, 0]
 //        flower.scale = [0.5, 0.5, 0.5]
         
-        renderer?.models = [plane, cottage]
+        renderer?.models = [plane, cube]
         renderer?.camera.position = [0, 2, -6]
     }
 }
